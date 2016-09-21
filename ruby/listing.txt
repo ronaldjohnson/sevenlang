@@ -1,0 +1,10 @@
+total 56
+-rwxr-xr-x  1 ronaldjo  staff  251 Jun  8 13:41 day1.rb
+-rwxr-xr-x  1 ronaldjo  staff   21 Jun 10 22:21 day2_self_study.rb
+-rwxr-xr-x  1 ronaldjo  staff  389 Jun 11 22:29 from_file.rb
+-rwxr-xr-x  1 ronaldjo  staff  282 Jun  8 14:36 guess.rb
+-rwxr-xr-x  1 ronaldjo  staff   41 Jun  8 23:28 hello.rb
+-rw-r--r--  1 ronaldjo  staff    0 Jun 11 22:15 listing.bk
+-rw-r--r--  1 ronaldjo  staff    0 Jun 11 22:29 listing.txt
+-rw-r--r--  1 ronaldjo  staff  282 Jun  9 21:08 to_file.rb
+-rw-r--r--  1 ronaldjo  staff  500 Jun  9 20:58 tree.rb
