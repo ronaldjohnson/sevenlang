@@ -40,22 +40,20 @@ fib(1) println
 
 (2 / 0) println
 
-Number / = block(div,
-    OperatorTable addOperator("div", 2)
-    Number div := div
-    return method(d,
-        (d == 0) ifTrue(
-            return 0
-        ) ifFalse(
-            return (self div d)
-        )
+div := Number getSlot("/")
+Number / = method(denominator,
+    (denominator == 0) ifTrue(
+        return 0
+    ) ifFalse(
+        return (self div denominator)
     )
-)(Number getSlot("/"))
+)
 
-(4 / 0) println
+4 / 0 println
+#4 / 2 println
 
-/* 3
- ****************/
+Number / = getSlot("div")
+
 "3)" println
 twoDimArray := list(list(1,2),list(3,4))
 twoDimArray total := method(
@@ -68,3 +66,16 @@ twoDimArray total := method(
     return sum
 )
 (twoDimArray total) println
+
+"4)" println
+
+myList := list(1, 2, 3, 4)
+myList myAverage := method(
+    total := 0
+    self foreach(i,
+        total := i + total
+    )
+    return (total / (self size) );
+)
+
+myList myAverage() println
