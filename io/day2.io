@@ -69,13 +69,59 @@ twoDimArray total := method(
 
 "4)" println
 
-myList := list(1, 2, 3, 4)
-myList myAverage := method(
+List myAverage := method(
     total := 0
     self foreach(i,
+        (i type != Number type) ifTrue(
+            Exception raise("Only numbers are valid for this operation")
+        )
         total := i + total
     )
     return (total / (self size) );
 )
+myList := list("a", "e", "i", "o", "u")
+e := try(
+    myList myAverage()
+)
+e catch(Exception,
+    writeln(e coroutine backTraceString)
+)
 
-myList myAverage() println
+anotherList := list(1, 2, 3, 4)
+anotherList myAverage() println
+# if there are no numbers in the list or if any of the values
+# are not a number, an exception is thrown.
+
+"5)" println
+
+Dim := Object clone
+Dim dim := method(x, y,
+    self thisList := List clone
+    for(i, 1, y,
+        thisList append(List clone setSize(x))
+    )
+    return self
+)
+Dim set := method(x, y, value,
+    thisList at(y - 1) atPut(x - 1, value)
+)
+Dim get := method(x, y,
+    return thisList at(y - 1) at(x - 1)
+)
+
+twobytwo := Dim clone dim(2, 2)
+twobytwo set(2, 2, "hello")
+twobytwo get(2, 2) println
+
+"6)" println
+
+Dim transpose := method(
+    x := thisList size
+    y := thisList at(0) size
+    transposedList := Dim clone dim(y, x)
+    thisList foreach(i, v,
+        v foreach(j, w,
+            transposedList set(j, i, w)
+        )
+    )
+)
