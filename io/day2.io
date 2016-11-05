@@ -104,6 +104,7 @@ Dim dim := method(x, y,
 )
 Dim set := method(x, y, value,
     thisList at(y - 1) atPut(x - 1, value)
+    self
 )
 Dim get := method(x, y,
     return thisList at(y - 1) at(x - 1)
@@ -116,12 +117,19 @@ twobytwo get(2, 2) println
 "6)" println
 
 Dim transpose := method(
-    x := thisList size
-    y := thisList at(0) size
+    x := thisList at(0) size
+    y := thisList size
     transposedList := Dim clone dim(y, x)
-    thisList foreach(i, v,
-        v foreach(j, w,
-            transposedList set(j, i, w)
+    thisList foreach(j, v,
+        v foreach(i, w,
+            transposedList set(j + 1, i + 1, w)
         )
     )
+    transposedList
 )
+
+matrix := Dim clone dim(2, 3)
+matrix set(1, 1, "one") set(1, 2, "two") set(1, 3, "three")
+matrix set(2, 1, "four") set(2, 2, "five") set(2, 3, "six")
+new_matrix := matrix transpose()
+(new_matrix get(2, 1) == matrix get(1, 2)) println
