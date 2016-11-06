@@ -131,5 +131,26 @@ Dim transpose := method(
 matrix := Dim clone dim(2, 3)
 matrix set(1, 1, "one") set(1, 2, "two") set(1, 3, "three")
 matrix set(2, 1, "four") set(2, 2, "five") set(2, 3, "six")
+
 new_matrix := matrix transpose()
 (new_matrix get(2, 1) == matrix get(1, 2)) println
+
+"7)" println
+
+Dim asString := method(
+    lines := List clone
+    thisList foreach(j, v,
+        v foreach(i, w,
+            lines append(w, ", ")
+        )
+        lines pop
+        lines append("\n")
+    )
+    lines join()
+)
+
+f := File with("matrix.txt")
+f remove
+f openForUpdating
+f write(matrix asString())
+f close
