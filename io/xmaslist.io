@@ -5,7 +5,7 @@
 squareBrackets := method(
     r := List clone
     call message arguments foreach(arg,
-        r push(doMessage(arg) asMutable removePrefix("\"") removeSuffix("\""))
+        r push(doMessage(arg) asString asMutable removePrefix("\"") removeSuffix("\""))
     )
     r
 )
