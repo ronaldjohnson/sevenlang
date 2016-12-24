@@ -6,8 +6,8 @@ Builder forward := method(
     arguments := call message arguments
     indent := Number clone
     if(call sender type == "Builder" and call evalArgAt(0) type == "Number",
-        indent = call evalArgAt(0) asNumber()
-        arguments removeFirst
+        indent = call sender doMessage(arguments removeFirst) asNumber()
+
     )
     "  " repeated(indent) print
     writeln("<", call message name, ">")
